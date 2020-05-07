@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .errors {
+        color: red;
+      }
+
+      .message {
+        color: green;
+      }
+
+      .top-line {
+        color: white;
+      }
+
+
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <h3 class="top-line">Bookers</h3>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to user_path(current_user.id) do %>
+                  <span class="glyphicon glyphicon-home" aria-hidden="true"></span>  Home
+                <% end %>
+              </li>
+              <li>
+                <%= link_to users_path do %>
+                  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  Users
+                <% end %>
+              </li>
+              <li>
+                <%= link_to books_path do %>
+                  <span class="glyphicon glyphicon-book" aria-hidden="true"></span>  Books
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>  logout
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "/" do %>
+                  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Home
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "/home/about" do %>
+                  <span class="glyphicon glyphicon-link" aria-hidden="true"></span>  About
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_registration_path do %>
+                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>  sign Up
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_session_path do %>
+                  <span class="glyphicon glyphicon-log-in"></span>  login
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container message">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+    </div>
+  <%= yield %>
+    <footer>
+      <div class="container">
+        <p class="text-right">CopyRight Infratop.inc</p>
+      </div>
+    </footer>
+  </body>
+</html>

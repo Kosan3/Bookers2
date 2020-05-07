@@ -1,0 +1,9 @@
+<h2>New book</h2>
+<%= form_for(book) do |f| %>
+	<p>Title</p>
+	<%= f.text_field :title, size:"23x20" %>
+	<p>Opinion</p>
+	<%= f.text_area :body, size:"26x0" %>
+	<br>
+	<%= f.submit "Create Book" %>
+<% end %>

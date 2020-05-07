@@ -1,9 +1,9 @@
 <h2>New book</h2>
 <%= form_for(book) do |f| %>
 	<p>Title</p>
-	<%= f.text_field :title, size:"23x20" %>
+	<%= f.text_field :title, class: "form-control" %>
 	<p>Opinion</p>
-	<%= f.text_area :body, size:"26x0" %>
+	<%= f.text_area :body, class: "form-control" %>
 	<br>
-	<%= f.submit "Create Book" %>
+	<%= f.submit "Create Book", class: "btn btn-primary", style: "width: 100%;" %>
 <% end %>

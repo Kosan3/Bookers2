@@ -1,26 +1,17 @@
 <div class="container">
-	<div class="row">
-		<div class="col-xs-12">
-	<h2>Editing Book</h2>
-	<div class="errors">
-        <% if @book.errors.any? %>
-          <h2><%= pluralize(@book.errors.count,"error") %> prohibited this obj from being saved:</h2>
-          <ul>
-          <% @book.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        <% end %>
-    </div>
-	<%= form_for(@book) do |f| %>
-		<p>Title</p>
-		<%= f.text_field :title %>
-		<p>Opinion</p>
-		<%= f.text_area :body %>
-		<br>
-		<%= f.submit "Update Book" %>
-	<% end %>
-	<%= link_to "Show", book_path(@book) %>  |  <%= link_to "Back", books_path %>
-</div>
-</div>
+	<div class="row" style="width: 600px; margin: 0 auto;">
+		<h2>Editing Book</h2>
+
+		<%= render 'books/error', book: @book %>
+
+		<%= form_for(@book) do |f| %>
+			<p>Title</p>
+			<%= f.text_field :title, class: "form-control", style: "margin-bottom: 15px;" %>
+			<p>Opinion</p>
+			<%= f.text_area :body, class: "form-control" %>
+			<br>
+			<%= f.submit "Update Book", class: "btn btn-primary", style: "width: 100%; margin-bottom: 15px;" %>
+		<% end %>
+		<%= link_to "Show", book_path(@book), style: "color: gray;" %>  |  <%= link_to "Back", books_path, style: "color: gray;" %>
+	</div>
 </div>

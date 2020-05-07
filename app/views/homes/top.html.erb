@@ -1,8 +1,12 @@
-<div class="container text-center">
-	<h1>welcome to <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers  !!</h1>
-	<p>In Bookers,<br>
-	you can share and exchange your opinions , inpressions , and emotions<br>
-	about various books!</p>
-	<%= link_to "Log in", new_user_session_path %>
-	<%= link_to "Sign Up", new_user_registration_path %>
+<div class="container" style="margin: 0 auto;">
+	<div class="row" style="width: 500px; margin: 0 auto;">
+		<h1>welcome to <span class="glyphicon glyphicon-book" aria-hidden="true"></span><span style="font-weight: bold;">Bookers</span>  !!</h1>
+		<p>In <span class="glyphicon glyphicon-book" aria-hidden="true"></span><span style="font-weight: bold;">Bookers</span>,<br>
+		you can share and exchange your opinions , inpressions , and emotions<br>
+		about various books!</p>
+	</div>
+</div>
+<div class="container">
+	<%= link_to "Log in", new_user_session_path, class: "btn btn-info", style: "width: 480px; display: block; margin: 0 auto; color: gray;" %>
+	<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success", style: "width: 480px; display: block; margin: 0 auto; color: gray;" %>
 </div>

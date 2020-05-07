@@ -5,11 +5,11 @@
 			<h2>New book</h2>
 			<%= form_for(@booknew) do |f| %>
 				<p>Title</p>
-				<%= f.text_field :title %>
+				<%= f.text_field :title, class: "form-control" %>
 				<p>Opinion</p>
-				<%= f.text_area :body %>
+				<%= f.text_area :body, class: "form-control" %>
 				<br>
-				<%= f.submit "投稿" %>
+				<%= f.submit "Create Book", class: "btn btn-primary", style: "width: 100%;" %>
 			<% end %>
 		</div>
 		<div class="col-xs-9">
@@ -39,7 +39,7 @@
 								<% end %>
 							</td>
 							<td>
-								<%= link_to book_path(@book), method: :delete do %>
+								<%= link_to book_path(@book), method: :delete, "data-confirm" => "本当に消しますか?" do %>
 									<button class="btn btn-danger btn-xs">Destroy</button>
 								<% end %>
 							</td>

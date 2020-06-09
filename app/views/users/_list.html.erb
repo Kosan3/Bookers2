@@ -24,6 +24,11 @@
 	</tbody>
 </table>
 
+<% if current_user != user %>
+	<%= link_to 'チャットする', chat_path(user), class: "btn btn-danger form-control" %>
+<% end %>
+<br>
+<br>
 <%= link_to edit_user_path(current_user.id) do %>
 	<button type="button" class="btn btn-default btn-block" >
 		<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
